@@ -71,7 +71,6 @@
 // Đồ thị có 4 đỉnh và 3 cạnh (1,2), (1,4) và (2,3).
 
 #include <iostream>
-#include <cstdio>
 #include <vector>
 #include <set>
 
@@ -80,12 +79,10 @@ using namespace std;
 int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
-
-    freopen("DT.INP" , "r" , stdin);
-    freopen("DT.OUT" , "w" , stdout);
     
     int t , n;
-    cin >> t >> n;
+    cin >> t;
+    cin >> n;
 
     vector<int> deg(n+1 , 0);
     set<pair<int,int>> st;    
@@ -97,6 +94,7 @@ int main(){
         while(k--){
             int v;
             cin >> v;
+            if(i == v) continue;
             st.insert({min(i , v) , max(i , v)});
         }
     }
